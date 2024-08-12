@@ -8,9 +8,21 @@ jobs:
   doing-more-things:
     name: Doing Things From Issues
     runs-on: ubuntu-latest
+    outputs:
+      random-uuid: ${{ steps.uuid-gen.outputs.UUID }}
     steps:
       - name: Output Issue Information
         env:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_ACTION: ${{ github.event.action }}
         run: echo "The action '${EVENT_ACTION}' was performed against '${EVENT_NAME}'."
+      - name: Random UUID Gen
+        id: uuid-gen
+        run: echo "UUID=$(uuidgen)" >> "$GITHUB_OUTPUT"
+  
+  doing-next-thing:
+    needs: doing-more-things
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output UUID Information
+        run: echo " The random UUID from the job '${needs.doing-more-things.name}' is '${needs.doing-more-things.outputs.random-uuid}'."
