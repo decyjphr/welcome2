@@ -1,15 +1,17 @@
-name: Basic Workflows
+name: Basic Workflow
 on:
-  pull_request:  
-  branches: feature/basic-workflow
+  push:
+    branches: feature/basic-workflow
 jobs:
   do-things:
     name: Do Things
     runs-on: ubuntu-latest
     steps:
-      - name: The Thing I've Done
-        run: echo "I've done a thing!"
-      - name: An Error I made
+    - name: The Thing I've Done
+      run: echo "I've done a thing in ${{ github_ref }} branch!"
+    - name: Set Summary
+      run: echo "I've done a thing in ${{ github.ref }} branch!" >> $GITHUB_STEP_SUMMARY
+    - name: An Error I made
         run: |
           echo "I've made an error!"
-          exit 1
+          exit 1   
