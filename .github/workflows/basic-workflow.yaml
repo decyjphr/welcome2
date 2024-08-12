@@ -12,6 +12,6 @@ jobs:
     - name: Set Summary
       run: echo "I've done a thing in ${{ github.ref }} branch!" >> $GITHUB_STEP_SUMMARY
     - name: An Error I made
-        run: |
+      run: |
           echo "I've made an error!"
           exit 1   
