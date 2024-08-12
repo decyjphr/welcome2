@@ -9,3 +9,5 @@ jobs:
     steps:
     - name: The Thing I've Done
       run: echo "I've done a thing in ${{ github.ref }} branch!"
+    - name: Set Summary
+      run: echo "I've done a thing in ${{ github.ref }} branch!" >> $GITHUB_STEP_SUMMARY
