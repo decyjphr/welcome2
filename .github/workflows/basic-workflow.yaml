@@ -1,6 +1,6 @@
 name: Basic Workflows
 on:
-  push:  
+  pull_request:  
   branches: feature/basic-workflow
 jobs:
   do-things:
