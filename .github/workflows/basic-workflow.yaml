@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: The Thing I've Done
-      run: echo "I've done a thing in ${{ github_ref }} branch!"
+      run: echo "I've done a thing in ${{ github.ref }} branch!"
