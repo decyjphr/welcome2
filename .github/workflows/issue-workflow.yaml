@@ -25,4 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output UUID Information
-        run: echo " The random UUID from the job '${{ needs.doing-more-things.name }}' is '${{ needs.doing-more-things.outputs.random-uuid }}'."
+        run: echo " The random UUID from the job is '${{ needs.doing-more-things.outputs.random-uuid }}'." >> $GITHUB_STEP_SUMMARY
