@@ -2,7 +2,7 @@ name: Issue Events
 on:
   issues:
     types: [opened]
-  issue_comment
+  issue_comment:
     types: [created, edited, deleted]
 jobs:
   doing-more-things:
